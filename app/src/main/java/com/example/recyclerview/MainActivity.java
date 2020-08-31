@@ -2,26 +2,30 @@ package com.example.recyclerview;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.TableLayout;
+
+import com.example.recyclerview.adaptador.Adaptadorfragment;
+import com.example.recyclerview.classVO.perrosVO;
+import com.example.recyclerview.fragment.Fragment_mascotas;
+import com.example.recyclerview.fragment.Fragment_perfil;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TabLayout tableLayout;
+    private ViewPager viewPager;
 
-
-    RecyclerView rv_mascotas;
-
-    ArrayList<perrosVO> listaperros = new ArrayList<perrosVO>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,34 +33,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar mitoolbar = (Toolbar) findViewById(R.id.miactionbar);
-        setSupportActionBar(mitoolbar);
+
+        tableLayout = (TabLayout) findViewById(R.id.tablayout);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+
+        setUpViewPager();
+
+        if (mitoolbar != null){
+            setSupportActionBar(mitoolbar);
+        }
 
 
 
-        rv_mascotas = (RecyclerView) findViewById(R.id.rv_mascotas);
-
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        rv_mascotas.setLayoutManager(llm);
-
-        llenarlista();
-
-
-        Adaptadorperros adaptador = new Adaptadorperros(listaperros, this);
-        rv_mascotas.setAdapter(adaptador);
 
 
     }
-
-    public void llenarlista (){
-
-        listaperros.add(new perrosVO(R.drawable.perro_1, "Catty", 3));
-        listaperros.add(new perrosVO(R.drawable.perro_2, "Ronny", 2));
-        listaperros.add(new perrosVO(R.drawable.perro_3, "Pelusa", 5));
-        listaperros.add(new perrosVO(R.drawable.perro_4, "GuauGuau", 7));
-        listaperros.add(new perrosVO(R.drawable.perro_5, "Coqui", 4));
-
+    private ArrayList<Fragment> agregarfragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new Fragment_mascotas());
+        fragments.add(new Fragment_perfil());
+        return fragments;
     }
+
+    private void setUpViewPager(){
+        viewPager.setAdapter(new Adaptadorfragment(getSupportFragmentManager(), agregarfragments()));
+        tableLayout.setupWithViewPager(viewPager);
+        tableLayout.getTabAt(0).setIcon(R.drawable.ic_action_name);
+        tableLayout.getTabAt(1).setIcon(R.drawable.ic_perfil_perro);
+    }
+
+
 
     //metodo para mostrar el menu
 

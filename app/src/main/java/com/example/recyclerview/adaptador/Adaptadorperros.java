@@ -1,7 +1,6 @@
-package com.example.recyclerview;
+package com.example.recyclerview.adaptador;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.recyclerview.R;
+import com.example.recyclerview.classVO.perrosVO;
 
 import java.util.ArrayList;
 

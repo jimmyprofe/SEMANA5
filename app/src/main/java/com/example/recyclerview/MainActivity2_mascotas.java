@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import com.example.recyclerview.adaptador.Adaptadorperros;
+import com.example.recyclerview.classVO.perrosVO;
+
 import java.util.ArrayList;
 
 public class MainActivity2_mascotas extends AppCompatActivity {

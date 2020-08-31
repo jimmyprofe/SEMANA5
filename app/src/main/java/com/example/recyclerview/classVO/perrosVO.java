@@ -1,4 +1,4 @@
-package com.example.recyclerview;
+package com.example.recyclerview.classVO;
 
 public class perrosVO {
 
@@ -8,6 +8,10 @@ public class perrosVO {
 
     public perrosVO (){
 
+    }
+
+    public perrosVO(int ranking) {
+        this.ranking = ranking;
     }
 
     public perrosVO(int foto, String nombre, int ranking) {
