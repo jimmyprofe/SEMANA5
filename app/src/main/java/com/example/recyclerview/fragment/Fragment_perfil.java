@@ -102,7 +102,6 @@ public class Fragment_perfil extends Fragment {
         listaperfil.add(new perrosVO(8));
         listaperfil.add(new perrosVO(2));
 
-
     }
 
 

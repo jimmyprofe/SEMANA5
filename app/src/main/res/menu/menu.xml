@@ -7,6 +7,10 @@
         android:icon="@drawable/estrella"
         android:title="nuevo"
         app:showAsAction="always" />
-    <item android:title="@string/menu_contacto" />
-    <item android:title="@string/menu_acercade" />
+    <item
+        android:id="@+id/menu_contacto"
+        android:title="@string/menu_contacto" />
+    <item
+        android:id="@+id/menu_acercade"
+        android:title="@string/menu_acercade" />
 </menu>

@@ -9,4 +9,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="RisedButton" parent="Theme.AppCompat.Light">
+        <item name="colorButtonNormal">@color/colorPrimaryDark</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>
